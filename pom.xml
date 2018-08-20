@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wixct</groupId>
+    <artifactId>jfinal-cms-spring-boot-quickstart</artifactId>
+    <version>2.1.5-SNAPSHOT</version>
+    <packaging>maven-archetype</packaging>
+
+    <name>Spring Boot Maven Archetype: Quickstart</name>
+    <description>Archetype for creating Spring Boot Jfinal application</description>
+    <url>https://github.com/wxcmyx/jfinal-spring-boot-quickstart-archetype</url>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <tag>HEAD</tag>
+        <url>scm:git:git@github.com/wxcmyx/jfinal-cms-spring-boot-quickstart-archetype.git</url>
+        <connection>scm:git:git@github.com/wxcmyx/jfinal-cms-spring-boot-quickstart-archetype.git</connection>
+        <developerConnection>https://github.com/wxcmyx/jfinal-cms-spring-boot-quickstart-archetype</developerConnection>
+    </scm>
+    <!--<scm>-->
+        <!--<connection>scm:git:git@github.com:xiepengchong/lint-cleaner-plugin.git</connection>-->
+        <!--<developerConnection>scm:git:git@github.com:xiepengchong/lint-cleaner-plugin.git</developerConnection>-->
+        <!--<url>https://github.com/xiepengchong/lint-cleaner-plugin</url>-->
+        <!--<tag>lint-cleaner-plugin-1.0.1</tag>-->
+    <!--</scm>-->
+    <developers>
+        <developer>
+            <name>xiaochao Wang</name>
+            <email>44312782@qq.com</email>
+            <organization>http://sidao.org</organization>
+        </developer>
+    </developers>
+    <!-- Properties -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.archetype-packaging.version>3.0.1</maven.archetype-packaging.version>
+        <maven.maven-archetype-plugin.version>2.3</maven.maven-archetype-plugin.version>
+        <maven.maven-resources-plugin.version>2.6</maven.maven-resources-plugin.version>
+        <version.java>1.8</version.java>
+    </properties>
+
+    <!-- Build -->
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>${maven.archetype-packaging.version}</version>
+            </extension>
+        </extensions>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.3</version>
+                    <configuration>
+                        <tagNameFormat>${project.version}</tagNameFormat>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <source>${version.java}</source>
+                        <target>${version.java}</target>
+                        <showWarnings>true</showWarnings>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven.maven-resources-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>1.8.1</version>
+                    <configuration>
+                        <connectionType>connection</connectionType>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

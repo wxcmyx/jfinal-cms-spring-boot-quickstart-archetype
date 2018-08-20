@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    ds1:
+      url: jdbc:mysql://127.0.0.1:3306/pachong?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 8910WANg!
+    ds2:
+      url: jdbc:mysql://127.0.0.1:3306/pachong?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 8910WANg!
+
+javamelody:
+  #advisor-auto-proxy-creator-enabled: false
+  init-parameters:
+    log: false
+    url-exclude-pattern: (/webjars/.*|/css/.*|/images/.*|/fonts/.*|/js/.*)
+    authorized-users: admin:admin
+    storage-directory: /tmp/javamelody
+    #monitoring-path: /admin/performance
+
+swagger:
+  enabled: false

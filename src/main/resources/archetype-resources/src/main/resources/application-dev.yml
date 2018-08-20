@@ -1,0 +1,95 @@
+spring:
+  datasource:
+    ds1:
+      url: jdbc:mysql://127.0.0.1:3306/pachong?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 8910WANg!
+    ds2:
+      url: jdbc:mysql://127.0.0.1:3306/pachong?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 8910WANg!
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: QwcNWwHa
+  data:
+    mongodb:
+      uri: mongodb://uid:123456@192.168.37.142:27017/uid
+# See: https://github.com/javamelody/javamelody/wiki/UserGuide#6-optional-parameters
+javamelody:
+  #advisor-auto-proxy-creator-enabled: false
+  init-parameters:
+    log: true
+    url-exclude-pattern: (/webjars/.*|/static/.*|/css/.*|/images/.*|/fonts/.*|/js/.*)
+    authorized-users: admin:admin
+    storage-directory: /tmp/javamelody
+    #monitoring-path: /admin/performance
+# 输出到kafka的topic名称
+logback:
+  kafka:
+    logName: test
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info #, beans, env, mappings, metrics, jolokia, heapdump, configprops, loggers
+  endpoint:
+    health:
+      show-details: ALWAYS
+      #show-details: WHEN_AUTHORIZED
+    env:
+      keys-to-sanitize: java.vm.name, local.server.port
+    jolokia:
+      config:
+        listenForHttpService: true
+        debug: true
+
+swagger:
+#  enabled: false
+  title: xx系统
+  description:  系统描述
+  version:  1.1.0.RELEASE
+  license:  Apache License, Version 2.0
+  licenseUrl:  https://www.apache.org/licenses/LICENSE-2.0.html
+#  termsOfServiceUrl:  https://github.com/dyc87112/spring-boot-starter-swagger
+  contact:
+    name:  我
+#    url:  http://blog.didispace.com
+#    email:  dyc87112@qq.com
+  base-package:  ${package}.web
+
+#  ignored-parameter-types[0]:  com.didispace.demo.User
+
+  global-operation-parameters[0]:
+    name: apiversion
+    description: 版本信息，当前值为 1.1
+    modelRef: string
+    parameterType: header
+    required:  true
+  global-operation-parameters[1]:
+    name: refer
+    description: pc,h5-pc,h5-mb,app,hiq(根据自身选择其一)
+    modelRef: string
+    parameterType: header
+    required: true
+  global-operation-parameters[2]:
+    name: x-authentication-token
+    description: 从登陆接口获取
+    modelRef: string
+    parameterType: header
+    required: false
+  apply-default-response-messages:  true
+  global-response-message:
+    get[0]:
+      code: 401
+      message: 401get
+    get[1]:
+      code: 500
+      message: 500get
+      modelRef: ERROR
+  ui-config:
+    json-editor: true
+    show-request-headers: true
+    request-timeout: 5000
+    submit-methods: get,delete
